@@ -1,6 +1,11 @@
+import { CardSpotlightDemo } from "@/components/global/card";
+import { CardHoverEffectDemo } from "@/components/global/cardHover";
 import { ContainerScroll } from "@/components/global/container-scroll-animation";
+import { LampComponent } from "@/components/global/lamp";
 import { InfiniteMovingCards } from "@/components/global/moving-cards";
 import Navbar from "@/components/global/navbar";
+import { TypewriterEffectSmoothDemo } from "@/components/global/TypewriterEffect";
+import { WavyBackgroundDemo } from "@/components/global/wavyBackground";
 import { Button } from "@/components/ui/button";
 import { clients } from "@/lib/constants";
 
@@ -36,6 +41,25 @@ export default function Home() {
         direction="right"
         speed="slow"
       />
+
+      <section>
+        {/* <HeroParallas products={products}></HeroParallas> */}
+        {/* <BackgroundLinesDemo/> */}
+        <p className="text-2xl mt-32 md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
+        Supercharge Your Productivity
+        </p>
+        <p className="text-base md:text-lg mt-4 text-white font-normal inter-var text-center">
+        Streamline your workflows with intelligent automation – fast, flexible, and code-free.
+        </p>
+        <CardHoverEffectDemo />
+      </section>
+
+      <section className="mt-32">
+        <LampComponent/>
+      </section>
+      <section >
+        <TypewriterEffectSmoothDemo/>
+      </section>
     </div>
   );
 }
