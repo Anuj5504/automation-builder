@@ -6,6 +6,8 @@ import { z } from 'zod'
 import { EditUserProfileSchema } from '@/lib/types';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
+import { Button } from '../ui/button';
+import { Loader2 } from 'lucide-react';
 
 type Props = {}
 
@@ -33,24 +35,37 @@ const ProfileForm = (props: Props) => {
                   placeholder="Name"
                 />
               </FormControl>
-              <FormMessage   />
+              <FormMessage />
             </FormItem>
           )}
         />
-        <FormField disabled={isLoading} control={form.control} name='email'
+        <FormField disabled={true} control={form.control} name='email'
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-lg">User Email</FormLabel>
               <FormControl>
                 <Input
                   {...field}
+                  type='email'
                   placeholder="Email"
                 />
               </FormControl>
-              <FormMessage   />
+              <FormMessage />
             </FormItem>
           )}
         />
+
+        <Button type='submit' className='w-64 self-star cursor-pointer bg-white text-black hover:bg-[#2F0068] hover:text-white' variant='default'>
+          {isLoading ? (
+            <>
+              <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+              Saving Changes
+
+            </>
+          ) : (
+            'Save Changes'
+          )}
+        </Button>
       </form>
     </Form>
   )
