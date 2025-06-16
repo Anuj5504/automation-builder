@@ -1,4 +1,3 @@
-'use client'
 import { WorkflowFormSchema } from '@/lib/types'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
@@ -46,14 +45,14 @@ const Workflowform = ({ subTitle, title }: Props) => {
   const isLoading = form.formState.isLoading
   const router = useRouter()
 
-  // const handleSubmit = async (values: z.infer<typeof WorkflowFormSchema>) => {
-  //   const workflow = await onCreateWorkflow(values.name, values.description)
-  //   if (workflow) {
-  //     toast.message(workflow.message)
-  //     router.refresh()
-  //   }
-  //   setClose()
-  // }
+  const handleSubmit = async (values: z.infer<typeof WorkflowFormSchema>) => {
+    // const workflow = await onCreateWorkflow(values.name, values.description)
+    // if (workflow) {
+    //   toast.message(workflow.message)
+    //   router.refresh()
+    // }
+    // setClose()
+  }
 
   return (
     <Card className="w-full max-w-[650px] border-none">
@@ -66,6 +65,7 @@ const Workflowform = ({ subTitle, title }: Props) => {
       <CardContent>
         <Form {...form}>
           <form
+            onSubmit={form.handleSubmit(handleSubmit)}
             className="flex flex-col gap-4 text-left"
           >
             <FormField
@@ -103,7 +103,7 @@ const Workflowform = ({ subTitle, title }: Props) => {
               )}
             />
             <Button
-              className="mt-4"
+              className="mt-4 cursor-pointer border hover:bg-white bg-white text-black border-white"
               disabled={isLoading}
               type="submit"
             >

@@ -1,12 +1,14 @@
+import {heroui} from '@heroui/theme';
 import type { Config } from 'tailwindcss'
 
 const config = {
   darkMode: ['class', 'dark'],
   content: [
-    './app/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './lib/**/*.{ts,tsx}',
-    './providers/**/*.{ts,tsx}',
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./lib/**/*.{ts,tsx}",
+    "./providers/**/*.{ts,tsx}",
+    "./node_modules/@heroui/theme/dist/components/toggle.js"
   ],
   prefix: '',
   theme: {
@@ -130,7 +132,7 @@ const config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'),heroui()],
 } satisfies Config
 
 export default config
